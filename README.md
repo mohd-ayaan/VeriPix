@@ -1,6 +1,7 @@
 # VeriPix – AI Image Forgery Detection and Localization
 
 ![VeriPix Banner](images/Gemini_Generated_Image_hxz3u6hxz3u6hxz3.png)
+
 **VeriPix** is a deep learning-based system designed to detect and localize digital image forgeries. It utilizes **Error Level Analysis (ELA)** for preprocessing, **EfficientNet** for binary classification, and a **U-Net** architecture for generating pixel-level tampering masks.
 
 ## 🚀 Features
@@ -146,18 +147,18 @@ python gui/gradio_app_classifier_only.py --port 7861
 ```
 
 ## Technical Details
-Workflow:
-ELA Preprocessing: Converts RGB input to an Error Level Analysis map (JPEG quality 90, scale 10).
-Classifier: EfficientNet-B0 (or B4 via timm) predicts the global label.
-Localizer: U-Net encoder-decoder predicts pixel-wise tampering probability.
+### Workflow:
+* ELA Preprocessing: Converts RGB input to an Error Level Analysis map (JPEG quality 90, scale 10).
+* Classifier: EfficientNet-B0 (or B4 via timm) predicts the global label.
+* Localizer: U-Net encoder-decoder predicts pixel-wise tampering probability.
 
-Loss Functions:
-Classification: BCE, Weighted BCE, Focal Loss.
-Localization: Dice, Tversky, Focal-Dice, Combo Loss.
-Normalization: Images resized to 224x224 and normalized using ImageNet statistics.
+### Loss Functions:
+* Classification: BCE, Weighted BCE, Focal Loss.
+* Localization: Dice, Tversky, Focal-Dice, Combo Loss.
+* Normalization: Images resized to 224x224 and normalized using ImageNet statistics.
 
-🔮 Future Work
-[ ] Architecture Upgrade: Replace standard U-Net with Attention U-Net or DeepLabV3+ to improve IoU.
-[ ] Ensembling: Use an ensemble of EfficientNet variants to push accuracy >97%.
-[ ] Datasets: Add support for MICC-F2000 and Coverage datasets.
-[ ] Explainability: Integrate Grad-CAM to visualize classifier attention maps.
+###  Future Work
+* **Architecture Upgrade:** Replace standard U-Net with Attention U-Net or DeepLabV3+ to improve IoU.
+* **Ensembling:** Use an ensemble of EfficientNet variants to push accuracy >97%.
+* **Datasets:** Add support for MICC-F2000 and Coverage datasets.
+* **Explainability:** Integrate Grad-CAM to visualize classifier attention maps.
